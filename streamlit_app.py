@@ -96,4 +96,3 @@ with st.form('myform', clear_on_submit=True):
             del openai_api_key
 if len(result):
     st.info(response)
-

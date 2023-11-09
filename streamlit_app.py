@@ -16,7 +16,7 @@ def generate_response(input_text):
     # making GPT a reliable tool for obtaining determined outputs with no variation.
     ###
 
-    llm = OpenAI(temperature=0.2, openai_api_key=openai_api_key)
+    llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
     st.info(llm(input_text))
 
 with st.form('my_form'):
@@ -29,17 +29,6 @@ with st.form('my_form'):
         st.warning('Please enter your OpenAI API key!', icon='⚠')
     if submitted and openai_api_key.startswith('sk-'):
         generate_response(txt_input)
-
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-import streamlit as st
-from langchain.llms import OpenAI
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import Chroma
-from langchain.chains import RetrievalQA
-import pypdf
 
 __import__('pysqlite3')
 import sys
